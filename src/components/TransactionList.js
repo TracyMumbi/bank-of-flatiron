@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Transactions from './Transactions'
 
-function TransactionList({allTransactions, newTransactionLIst}) {
+function TransactionList({allTransactions}) {
 
 
   const mappedTransactions = allTransactions.map((oneTransaction) => {
     return (
+      // this passes the id of the data
       <Transactions 
       key={oneTransaction.id} 
       date={oneTransaction.date}
@@ -19,6 +20,7 @@ function TransactionList({allTransactions, newTransactionLIst}) {
   return (
     <>
       <table>
+        {/* head for the table */}
       <thead>
           <tr className="table-header">
             <th className="date">Date</th>
@@ -29,6 +31,7 @@ function TransactionList({allTransactions, newTransactionLIst}) {
           </tr>
         </thead>
         <tbody>
+          {/* rendering the mapped transactions */}
         {mappedTransactions}
         </tbody>
       </table>
