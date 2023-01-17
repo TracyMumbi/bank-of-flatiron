@@ -29,7 +29,7 @@ See a table of the transactions.<br></li>
 <li>Filter transactions by typing into the search bar. Only transactions with a description matching the search term should be shown in the transactions table.<br> </li>
 
 ## Endpoints for Core Deliverables
-<li>GET /transactions
+<li>GET /transactions<br>
 Example Response:<br>
 `
 [
@@ -50,7 +50,7 @@ Example Response:<br>
 ]
 `<br></li>
 <li>
-POST /transactions
+POST /transactions<br>
 Required Headers:<br>
 `
 {
