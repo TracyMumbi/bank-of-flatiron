@@ -1,5 +1,3 @@
-
-
 h1{
   padding-top: 1px;
   font-size: xx-large;
@@ -9,38 +7,14 @@ h1{
   
 }
 
-#searchbar {
-  display: flex;
-  background-color: #AFBFC0;
-  font-family: sans-serif;
-  margin-bottom: 20px;
-
-
-}
-
 #details{
   display: flex;
 }
 
-#darkMode{
-  border-radius: 10px;
-  background-color: #AFBFC0;
-  color: white;
-  font-size: large;
-  width: 150px;
-  margin-right: 100px;
-  height: 60px;
-  align-content: center;
-}
-
-#darkMode:hover {
-  background-color: black;
-}
-
 #searchButton {
   border-radius: 10px;
-  background-color: #AFBFC0;
-  color: white;
+  background-color: #6C698D;
+  color: black;
   font-size: medium;
   width: 80px;
   margin-right: px;
@@ -51,7 +25,7 @@ h1{
 
 #searchButton:hover {
   background-color: #383F51;
-
+  color: white;
 }
 
 #input {
@@ -69,15 +43,16 @@ h1{
   border-style: hidden;
 }
 
-
-th {
-  border: 2px;
-}
-
 th, td {
   border: 1px solid;
-  border-radius: 2px;
+  border-radius: 4px;
+  width: 300px;
 
+}
+
+td{
+  color: black;
+  border: 1px solid;
 }
 
 #new {
@@ -90,6 +65,8 @@ th, td {
   font-size: large;
   border-radius: 5px;
   margin-right: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 #type {
   height: 40px;
@@ -103,5 +80,24 @@ th, td {
   font-size: large;
   border-radius: 5px;
   margin-right: 10px;
+  background-color: #6C698D;
 }
 
+#newtransactions:hover{
+  background-color: #383F51;
+  color: white;
+}
+.navbar {
+  display: flex; 
+  background: beige; 
+  padding: 10px; 
+  margin: 5px; 
+  border-radius: 10px; 
+}
+
+.body {
+  background-color: #DECDF5;
+}
+.forminput{
+
+}

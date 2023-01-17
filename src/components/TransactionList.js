@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Transactions from './Transactions'
-import { newTransactionLIst } from './NewTransactions'
+
 function TransactionList({allTransactions, newTransactionLIst}) {
+
 
   const mappedTransactions = allTransactions.map((oneTransaction) => {
     return (
@@ -12,10 +13,9 @@ function TransactionList({allTransactions, newTransactionLIst}) {
       category={oneTransaction.category}
       amount={oneTransaction.amount} />
     )
-  
-    
   })
   //console.log(allTransactions)
+
   return (
     <>
       <table>
@@ -25,11 +25,11 @@ function TransactionList({allTransactions, newTransactionLIst}) {
             <th className="description">Description</th>
             <th className="category">Category</th>
             <th className="amount">Amount</th>
+            <th className='button'>Button</th>
           </tr>
         </thead>
         <tbody>
         {mappedTransactions}
-        {newTransactionLIst}
         </tbody>
       </table>
     </>

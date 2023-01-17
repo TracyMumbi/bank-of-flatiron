@@ -1,78 +1,46 @@
 import React, {useState} from 'react'
-import Transactions from './Transactions'
 
 function NewTransactions() {
 
-    const [isNewTransactions, setNewTransactions] = useState([])
-    const [id, setId] = useState("")
-    const [date, setDate] = useState("")
-    const [description, setDescription] = useState("")
-    const [category, setCategory] = useState("")
-    const [amount, setAmount] = useState("")
+    const [isClicked, setIsClicked] = useState({
+        date:"",
+        description:"",
+        category:"",
+        amount:""
+    })
 
-
-    function handleId (event) {
-        setId(event.target.value)
-    }
-
-
-    function handleDate (event) {
-        setDate(event.target.value)
-    }
-
-    function handleDescription (event) {
-        setDescription(event.target.value)
-    }
-
-    function handleCategory (event) {
-        setCategory(event.target.value)
-    }
-
-    function handleAmount (event) {
-        setAmount(event.target.value)
-    }
-
-    function handleTransactions () {
-            const newTransaction = {
-                id: id,
-                date: date,
-                description: description,
-                category: category,
-                amount: amount
-
-            }
-    //const newArray =[...isNewTransactions,newTransaction]
-    setNewTransactions([...isNewTransactions,newTransaction])
-    setId("")
-    setDate("")
-    setDescription("")
-    setCategory("")
-    setAmount("")
-   // console.log(newArray)
-         }
-
-    const newTransactionLIst = isNewTransactions.map((oneTransactionLIst)=>{
-            return (<Transactions 
-            key={oneTransactionLIst.id}
-                date={oneTransactionLIst.date}
-                description={oneTransactionLIst.description}
-                category={oneTransactionLIst.category}
-                amount={oneTransactionLIst.amount}
-            />
-            )
+       const handleChange = (e) => {
+        console.log(e.target.value)
+        setIsClicked({
+            ...isClicked,
+            [e.target.name] : e.target.value,   
         })
+    }
 
-       // console.log(newTransactionLIst)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch('http://localhost:8001/transactions',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(isClicked),
+            
+
+        })
+        window.location.reload() 
+
+    }
+
 
   return (
-    <form id = "new">
-        <input type="number" onChange={handleId} value={id} />
-        <input id = "inputtransaction" type="date" onChange={handleDate} value={date} />
-        <input id = "inputtransaction" type="text" placeholder='Description' onChange={handleDescription} value={description}/>
-        <input id="type" onChange = {handleCategory} value={category}/>
-        <input id = "inputtransaction" type="number" placeholder='Amount' onChange={handleAmount} value={amount} />
-        <button id = "newtransactions" onClick = {handleTransactions}>New Transaction</button>
-        <div>{newTransactionLIst}</div>
+    <form onSubmit={handleSubmit} className = "forminput">
+        <input id = "inputtransaction" name='date' type="date" onChange={handleChange}  />
+        <input id = "inputtransaction" type="text" name='description' placeholder='Description' onChange={handleChange} />
+        <input id="type" placeholder= "Category" name='category' onChange = {handleChange} />
+        <input id = "inputtransaction" type="number" name='amoungt' placeholder='Amount' onChange={handleChange}  />
+        <button id = "newtransactions" type="submit" onSubmit={handleSubmit}>New Transaction</button>
+        {/* <div>{newTransactionLIst}</div> */}
     </form>
   )
 }

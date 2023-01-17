@@ -19,12 +19,13 @@ function Home() {
     // console.log(isTransactions);
 
   return (
-    <div>
-        
-        <h1 style={{color: "rebeccapurple"}}>Welcome to your trusted bank of FlatIron</h1 >
+    <div class = "body">
+    <div className = "navbar">
+    <h1 style={{color: "rebeccapurple"}}>Welcome to your trusted bank of FlatIron</h1 >
         <input id = 'input' type="text" placeholder='Search Here...' onChange={handleSearch}/>
         <button id = 'searchButton'>Search</button>
-        <NewTransactions />
+      </div>       
+        <NewTransactions isTransactions={isTransactions} setIsTransactions={setIsTransactions}/>
         <TransactionList allTransactions={isTransactions}/>
     </div>
   )
